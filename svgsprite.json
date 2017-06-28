@@ -1,0 +1,9 @@
+{
+  "dest": "public/assets/svg",
+  "mode": {
+    "symbol": {
+      "dest": ".",
+      "sprite": "sprite.svg"
+    }
+  }
+}
