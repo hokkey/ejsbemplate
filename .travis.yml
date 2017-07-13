@@ -5,7 +5,6 @@ node_js:
 before_script:
   - npm install -g frontplate-cli
 script:
-  - ./generate-components.sh
   - npm run svgsprite
   - frp task clean
   - frp task sprite
