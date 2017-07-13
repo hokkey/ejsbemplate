@@ -97,33 +97,15 @@ export default class Gmap {
   _addPin(pinStyle, map, position) {
     switch (pinStyle) {
 
-    //MARKER WIDTH LOGO
-    case 'logo':
-      new google.maps.Marker({
-        position: position,
-        map: map,
-        icon: this.pins.pin2
-      });
-      new google.maps.Marker({
-        position: position,
-        map: map,
-        icon: this.pins.logo
-      });
-      break;
-
     //DEFAULT MARKER
     default:
 
       new google.maps.Marker({
         position: position,
         map: map,
-        icon: this.pins.pin1
+        icon: this.pins.pin
       });
-      new google.maps.Marker({
-        position: position,
-        map: map,
-        icon: this.pins.circle
-      });
+
     }
   }
 
