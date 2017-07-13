@@ -13,8 +13,8 @@
 
 ```
 npm install -g frontplate-cli
-cd (PROJECT_NAME)
-npm i
+frp create testing -g hokkey/ejsbemplate
+cd testing
 
 # 開発ビルド
 npm run build
