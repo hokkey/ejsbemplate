@@ -12,9 +12,13 @@
 ## Usage
 
 ```
+brew update && brew install jq
 npm install -g frontplate-cli
+
 frp create testing -g hokkey/ejsbemplate
 cd testing
+chmod +x ./generate-components.sh
+./generate-components.sh
 
 # 開発ビルド
 npm run build
