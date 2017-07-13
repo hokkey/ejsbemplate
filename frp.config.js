@@ -1,7 +1,9 @@
 'use strict';
 // https://github.com/frontainer/frontplate-cli/wiki/6.%E8%A8%AD%E5%AE%9A
 const webpack = require("webpack");
-const components = require("./components.json");
+const metadata = require("./conf/metadata.json");
+const components = require("./conf/components.json");
+const pages = require("./conf/pages.json");
 
 module.exports = function(production) {
   global.FRP_SRC = 'src';
@@ -33,12 +35,28 @@ module.exports = function(production) {
         "attr-unsafe-chars": true
       },
       params: {
-        components: components
+        siteComponents: components,
+        sitePages: pages,
+        metadata: metadata
       }
     },
-    style: {
+    style: production ? {
       src: 'src/**/*.scss',
       dest: 'public/assets',
+      outputStyle: 'compressed',
+      plugins: [
+        require('autoprefixer')({
+          // autoprefixer(https://github.com/postcss/autoprefixer)
+          browsers: [
+            'last 3 version',
+            'Android >= 4.2'
+          ]
+        })
+      ],
+    } : {
+      src: 'src/**/*.scss',
+      dest: 'public/assets',
+      outputStyle: 'expanded',
       plugins: [
         require('autoprefixer')({
           // autoprefixer(https://github.com/postcss/autoprefixer)
