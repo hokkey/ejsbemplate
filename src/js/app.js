@@ -1,8 +1,8 @@
 // Lib:
 import svg4everybody from 'svg4everybody';
 // Function:
-import dotdotdot from 'util/jq-dotdotdot';
-import scrollToAnchor from 'util/jq-scroll-to-anchor'
+import polyfillAssign from 'util/polyfill-assign';
+import scrollToAnchor from 'util/jq/scroll-to-anchor'
 
 /**
  * @constructor
@@ -13,10 +13,10 @@ export class App {
 
   init() {
     scrollToAnchor(400, -60);
-    dotdotdot('.js-dotdotdot');
   }
 
   polyfill() {
+    polyfillAssign();
     svg4everybody();
   }
 
