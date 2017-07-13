@@ -13,10 +13,11 @@
   "scripts": {
     "start": "frp build && frp serve -t",
     "test": "frp task test",
-    "build": "frp build",
+    "build": "frp build && npm run svgsprite",
     "serve": "frp serve",
-    "production": "frp build -p",
-    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
+    "production": "frp build -p && npm run svgsprite && ./beautify.sh",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0",
+    "svgsprite": "svg-sprite -C conf/svg-icons.json --shape-transform-svgo conf/svgo.json src/svg-icons/*.svg"
   },
   "repository": {
     "type": "git",

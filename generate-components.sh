@@ -2,7 +2,7 @@
 
 dest="./src/view/components/"
 sassFile="_component.scss"
-json=$(cat components.json)
+json=$(cat conf/components.json)
 len=$(echo $json | jq length)
 
 function main() {
@@ -11,7 +11,7 @@ function main() {
     if [ -e "./$component" ]; then
       echo "$component is already available."
     else
-      node_modules/.bin/yo ejs-bem-component $component
+      ../../../node_modules/.bin/yo ejsbemplate $component
       echo "@import '"$component/$component"';" >> "$sassFile"
     fi
   done
