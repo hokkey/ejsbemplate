@@ -28,6 +28,7 @@ export default class CustomSelect {
   init() {
     this.lastSelectedVal = this.getCurrentVal();
     this.lastSelectedText = this.getCurrentText();
+    this.$labelElem.innerText = this.lastSelectedText;
 
     this.$selectElem.addEventListener('change', () => {
       this._onChange();
