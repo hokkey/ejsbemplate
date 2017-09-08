@@ -1,4 +1,5 @@
 import Type from 'class/util/type-util';
+import Event from 'class/util/lazy-event-util';
 import $ from 'jquery';
 
 export default class JqAccordion {
@@ -27,14 +28,19 @@ export default class JqAccordion {
     this.openClass = 'is-opened';
     this.isOpened = false;
 
-    this.innerHeight = this.$inner.height();
+    this.innerHeight = this._getInnerHeight();
     this.retainScrollOnClose = retainScrollOnClose;
 
     this._init();
   }
 
+  _getInnerHeight() {
+    return this.$inner.height();
+  }
+
   _init() {
     this._clickHandler();
+    this._watchResize();
 
     if (!this.$container.hasClass(this.openClass)) {
       this.close();
@@ -42,6 +48,12 @@ export default class JqAccordion {
     }
 
     this.isOpened = true;
+  }
+
+  _watchResize() {
+    Event.attachLazyHorizontalResizeCb(window, () => {
+      this.innerHeight = this._getInnerHeight();
+    });
   }
 
   _onClick(e) {
