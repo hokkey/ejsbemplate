@@ -18,6 +18,18 @@ export default class ElementUtil {
     return nodeList;
   }
 
+  static addClassForEach(nodelist, name) {
+    ElementUtil.eachNode(nodelist, ($node) => {
+      $node.classList.add(name);
+    });
+  }
+
+  static removeClassForEach(nodelist, name) {
+    ElementUtil.eachNode(nodelist, ($node) => {
+      $node.classList.remove(name);
+    });
+  }
+
   static addEventForEach(nodeList, cb, eventName) {
     return ElementUtil.eachNode(nodeList, (node) => {
       node.addEventListener(eventName, (e) => {

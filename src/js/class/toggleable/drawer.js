@@ -1,6 +1,6 @@
-import Swipeable from 'class/toggleable';
+import Toggleable from 'class/toggleable/toggleable';
 
-export default class ToggleableDrawer extends Swipeable {
+export default class ToggleableDrawer extends Toggleable {
   constructor($targets, stateClass, stateIsActived = false) {
     super($targets, stateClass, stateIsActived);
     this.bodyScrollClass = 'is-scroll-locked';
