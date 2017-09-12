@@ -6,11 +6,11 @@
 export default class TypeUtil {
 
   static isElem(elem) {
-    return (elem instanceof HTMLElement === true);
+    return elem instanceof HTMLElement === true;
   }
 
   static isNodeList(node) {
-    return (node instanceof NodeList === true);
+    return node instanceof NodeList === true;
   }
 
   static type(obj) {
@@ -18,26 +18,31 @@ export default class TypeUtil {
   }
 
   static isBool(obj) {
-    return (TypeUtil.type(obj) === 'boolean');
+    return TypeUtil.type(obj) === 'boolean';
   }
 
   static isNumber(obj) {
-    return (TypeUtil.type(obj) === 'number');
+    return TypeUtil.type(obj) === 'number';
+  }
+
+  static isValidNum(obj) {
+    // Including NaN checking
+    return TypeUtil.isNumber(obj) && (obj === obj);
   }
 
   static isString(obj) {
-    return (TypeUtil.type(obj) === 'string');
+    return TypeUtil.type(obj) === 'string';
   }
 
   static isArray(obj) {
-    return (TypeUtil.type(obj) === 'array');
+    return TypeUtil.type(obj) === 'array';
   }
 
   static isFunction(obj) {
-    return (TypeUtil.type(obj) === 'function');
+    return TypeUtil.type(obj) === 'function';
   }
 
   static isObject(obj) {
-    return (TypeUtil.type(obj) === 'object');
+    return TypeUtil.type(obj) === 'object';
   }
 }
