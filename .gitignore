@@ -1,7 +1,10 @@
-.idea
+!.gitkeep
+.idea/
+.gtm/
 .sass-cache
 .DS_Store
 node_modules/*
 !node_modules/generator-ejsbemplate/
-public
-guide
+node_modules/generator-ejsbemplate/node_modules/
+public/
+guide/
