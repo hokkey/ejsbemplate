@@ -6,5 +6,7 @@
 node_modules/*
 !node_modules/generator-ejsbemplate/
 node_modules/generator-ejsbemplate/node_modules/
+!node_modules/generator-ejspageplate/
+node_modules/generator-ejspageplate/node_modules/
 public/
 guide/

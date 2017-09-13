@@ -1,0 +1,11 @@
+<%
+// site-footer/_site-footer-guide.ejs
+// A preview HTML of "site-footer" component
+  const EjsRoot = '../../';
+  const Block = 'site-footer';
+%>
+<%- include(...util.inc(EjsRoot,Block,{modifier:''})); %>
+
+<%# Object.entries(getSiteFooterData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

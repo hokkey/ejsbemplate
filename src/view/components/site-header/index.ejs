@@ -1,6 +1,6 @@
 <%
-// icon/index.ejs
-// A wrapper HTML for previewing "icon"
+// site-header/index.ejs
+// A wrapper HTML for previewing "site-header"
   const EjsRoot = '../../';
   data = {
     pageSettings: sitePages['dummy'],
@@ -8,5 +8,5 @@
   };
   if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
 %><%- include(`${EjsRoot}parts/_header`); %>
-<%- include(`${EjsRoot}components/icon/_icon-preview`); %>
+<%- include(`${EjsRoot}components/site-header/_site-header-preview`); %>
 <%- include(`${EjsRoot}parts/_footer`); %>

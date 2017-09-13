@@ -1,10 +1,45 @@
 <%
-const ejsRoot = './';
-include(ejsRoot + 'data/_data'); data = getData();
-// Replace pageSettings
-data.pageSetting = sitePages['top'];
-data.root = './';
-%>
-<%- include(ejsRoot + 'parts/_header'); %>
+  const EjsRoot = './';
+  data = Object.assign({}, sitePages['dummy']);
+  data.root = './';
+  data.title = 'ページ一覧';
 
-<%- include(ejsRoot + 'parts/_footer'); %>
+  const items = Object.entries(sitePages).map((item) => {
+    if (item[0] === 'dummy') {
+      return null;
+    }
+    return {
+      modifier: '',
+      text: item[0],
+      href: `pages/${item[0]}.html`,
+      icon: '',
+      target: ''
+    }
+  });
+%>
+<%- include(`${EjsRoot}parts/_header`); %>
+
+<div class="page<%-util.setModifier('page','')%>">
+
+  <div class="page__header">
+    <%-include(...util.inc(EjsRoot,'site-header',{modifier:''}));%>
+  </div>
+
+  <div class="page__content">
+
+    <ul>
+      <li><a href="components/index.html">コンポーネント一覧</a></li>
+    <% items.forEach((item) => { %>
+      <% if (item === null) { return; } %>
+      <li><a href="<%=item.href%>" target="_blank"><%=item.text%></a></li>
+    <% }); %>
+    </ul>
+
+    </div>
+
+  <div class="page__footer">
+    <%-include(...util.inc(EjsRoot,'site-footer',{modifier:''}));%>
+  </div>
+</div>
+
+<%- include(`${EjsRoot}parts/_footer`); %>

@@ -37,7 +37,14 @@ module.exports = function(production) {
       params: {
         siteComponents: components,
         sitePages: pages,
-        metadata: metadata
+        metadata: (() => {
+          if (production) {
+            return metadata;
+          }
+          return Object.assign({}, metadata, {
+            baseUrl: 'localhost:3000'
+          });
+        })(),
       }
     },
     style: production ? {

@@ -1,7 +1,8 @@
 <%
-  const ejsRoot = '../';
-  include(ejsRoot + 'data/_data'); data = getData();
+  const EjsRoot = '../';
+  data = Object.assign({}, sitePages['dummy']);
   data.root = '../';
+  data.title = 'コンポーネント一覧';
 
   const items = siteComponents.map((item) => {
     return {
@@ -13,5 +14,28 @@
     }
   });
 %>
-<%- include(ejsRoot + 'parts/_header'); %>
-<%- include(ejsRoot + 'parts/_footer'); %>
+<%- include(`${EjsRoot}parts/_header`); %>
+
+<div class="page<%-util.setModifier('page','')%>">
+
+  <div class="page__header">
+    <%-include(...util.inc(EjsRoot,'site-header',{modifier:''}));%>
+  </div>
+
+  <div class="page__content">
+
+    <ul>
+      <li><a href="<%=data.root%>">ページ一覧</a></li>
+    <% items.forEach((item) => { %>
+      <li><a href="<%=item.href%>" target="_blank"><%=item.text%></a></li>
+    <% }); %>
+    </ul>
+
+    </div>
+
+  <div class="page__footer">
+    <%-include(...util.inc(EjsRoot,'site-footer',{modifier:''}));%>
+  </div>
+</div>
+
+<%- include(`${EjsRoot}parts/_footer`); %>

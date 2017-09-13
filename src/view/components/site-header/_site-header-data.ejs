@@ -1,0 +1,20 @@
+<% getSiteHeaderData = (key) => {
+  const SiteHeaderData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return SiteHeaderData;
+  }
+
+  const result = SiteHeaderData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`site-header-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>
