@@ -1,0 +1,12 @@
+<%
+// input-checkbox/index.ejs
+// A wrapper HTML for previewing "input-checkbox"
+  const EjsRoot = '../../';
+  data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%><%- include(`${EjsRoot}parts/_header`); %>
+<%- include(`${EjsRoot}components/input-checkbox/_input-checkbox-preview`); %>
+<%- include(`${EjsRoot}parts/_footer`); %>

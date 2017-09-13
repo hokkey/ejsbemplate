@@ -1,0 +1,22 @@
+<%
+// input-checkbox/_input-checkbox-guide.ejs
+// A styleguide document of "input-checkbox" component
+  const EjsRoot = '../../';
+  const Block = 'input-checkbox';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+input-checkbox
+*/
+/*
+#styleguide
+.input-checkbox
+```
+<%-include(`${EjsRoot}components/input-checkbox/_input-checkbox-preview`);
+```
+*/

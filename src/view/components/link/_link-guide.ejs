@@ -1,0 +1,22 @@
+<%
+// link/_link-guide.ejs
+// A styleguide document of "link" component
+  const EjsRoot = '../../';
+  const Block = 'link';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+link
+*/
+/*
+#styleguide
+.link
+```
+<%-include(`${EjsRoot}components/link/_link-preview`);
+```
+*/

@@ -1,0 +1,27 @@
+<%
+// breadcrumb/_breadcrumb.ejs
+// A main HTML file of "breadcrumb" component
+//
+  const Block = 'breadcrumb';
+  const EjsRoot = '../../';
+  if (typeof breadcrumbParams === 'undefined') { breadcrumbParams = {}; }
+  const params = breadcrumbParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getBreadcrumbData(p.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Default text here',
+    //href: '',
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
+</div>
+<!-- /<%=Block%> -->

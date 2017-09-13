@@ -1,0 +1,20 @@
+// text-list/_text-list.scss
+.text-list {
+  $this: &;
+
+  &__head {
+
+  }
+
+  &--mod {
+    #{$this}__head {
+
+    }
+  }
+
+  &.is-active {
+    #{$this}__head {
+
+    }
+  }
+}

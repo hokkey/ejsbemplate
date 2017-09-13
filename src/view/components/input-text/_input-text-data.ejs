@@ -1,0 +1,20 @@
+<% getInputTextData = (key) => {
+  const InputTextData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return InputTextData;
+  }
+
+  const result = InputTextData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`input-text-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

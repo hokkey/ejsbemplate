@@ -1,0 +1,20 @@
+<% getInputSelectData = (key) => {
+  const InputSelectData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return InputSelectData;
+  }
+
+  const result = InputSelectData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`input-select-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

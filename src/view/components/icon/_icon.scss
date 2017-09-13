@@ -2,19 +2,30 @@
 .icon {
   $this: &;
 
-  &__head {
+  $size-sp: 18px;
 
+  display: inline-block;
+  width: $size-sp;
+  height: $size-sp;
+
+  // カラーバリエーション展開
+  $colors:
+    ('', $color-gray),
+  ;
+
+  @mixin apply-color($color-bg) {
+    fill: $color-bg;
   }
 
-  &--mod {
-    #{$this}__head {
+  @each $modifier, $color-bg in $colors {
 
-    }
-  }
+    @if ($modifier == '') {
+      @include apply-color($color-orange);
 
-  &.is-active {
-    #{$this}__head {
-
+    } @else {
+      &--#{$modifier} {
+        @include apply-color($color-bg);
+      }
     }
   }
 }

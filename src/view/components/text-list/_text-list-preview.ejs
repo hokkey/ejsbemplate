@@ -1,0 +1,11 @@
+<%
+// text-list/_text-list-guide.ejs
+// A preview HTML of "text-list" component
+  const EjsRoot = '../../';
+  const Block = 'text-list';
+%>
+<%- include(...util.inc(EjsRoot,Block,{modifier:''})); %>
+
+<%# Object.entries(getTextListData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

@@ -1,0 +1,20 @@
+// input-checkbox/_input-checkbox.scss
+.input-checkbox {
+  $this: &;
+
+  &__head {
+
+  }
+
+  &--mod {
+    #{$this}__head {
+
+    }
+  }
+
+  &.is-active {
+    #{$this}__head {
+
+    }
+  }
+}

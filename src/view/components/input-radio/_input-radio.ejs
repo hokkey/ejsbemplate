@@ -1,0 +1,27 @@
+<%
+// input-radio/_input-radio.ejs
+// A main HTML file of "input-radio" component
+//
+  const Block = 'input-radio';
+  const EjsRoot = '../../';
+  if (typeof inputRadioParams === 'undefined') { inputRadioParams = {}; }
+  const params = inputRadioParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getInputRadioData(p.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Default text here',
+    //href: '',
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
+</div>
+<!-- /<%=Block%> -->

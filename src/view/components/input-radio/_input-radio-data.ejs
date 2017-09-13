@@ -1,0 +1,20 @@
+<% getInputRadioData = (key) => {
+  const InputRadioData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return InputRadioData;
+  }
+
+  const result = InputRadioData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`input-radio-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

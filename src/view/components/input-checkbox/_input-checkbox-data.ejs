@@ -1,0 +1,20 @@
+<% getInputCheckboxData = (key) => {
+  const InputCheckboxData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return InputCheckboxData;
+  }
+
+  const result = InputCheckboxData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`input-checkbox-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

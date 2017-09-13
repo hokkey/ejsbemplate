@@ -1,0 +1,20 @@
+// input-radio/_input-radio.scss
+.input-radio {
+  $this: &;
+
+  &__head {
+
+  }
+
+  &--mod {
+    #{$this}__head {
+
+    }
+  }
+
+  &.is-active {
+    #{$this}__head {
+
+    }
+  }
+}

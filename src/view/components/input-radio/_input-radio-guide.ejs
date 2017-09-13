@@ -1,0 +1,22 @@
+<%
+// input-radio/_input-radio-guide.ejs
+// A styleguide document of "input-radio" component
+  const EjsRoot = '../../';
+  const Block = 'input-radio';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+input-radio
+*/
+/*
+#styleguide
+.input-radio
+```
+<%-include(`${EjsRoot}components/input-radio/_input-radio-preview`);
+```
+*/

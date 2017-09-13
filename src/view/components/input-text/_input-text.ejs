@@ -1,0 +1,31 @@
+<%
+// input-text/_input-text.ejs
+// A main HTML file of "input-text" component
+//
+  const Block = 'input-text';
+  const EjsRoot = '../../';
+  if (typeof inputTextParams === 'undefined') { inputTextParams = {}; }
+  const params = inputTextParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getInputTextData(p.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Default text here',
+    //href: '',
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
+
+  <div class="<%=name%>__head"></div>
+  <div class="<%=name%>__body"></div>
+
+</div>
+<!-- /<%=Block%> -->

@@ -1,0 +1,11 @@
+<%
+// input-text/_input-text-guide.ejs
+// A preview HTML of "input-text" component
+  const EjsRoot = '../../';
+  const Block = 'input-text';
+%>
+<%- include(...util.inc(EjsRoot,Block,{modifier:''})); %>
+
+<%# Object.entries(getInputTextData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

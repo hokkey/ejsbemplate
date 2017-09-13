@@ -1,0 +1,11 @@
+<%
+// link/_link-guide.ejs
+// A preview HTML of "link" component
+  const EjsRoot = '../../';
+  const Block = 'link';
+%>
+<%- include(...util.inc(EjsRoot,Block,{modifier:''})); %>
+
+<%# Object.entries(getLinkData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

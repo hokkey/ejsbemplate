@@ -1,0 +1,22 @@
+<%
+// input-textarea/_input-textarea-guide.ejs
+// A styleguide document of "input-textarea" component
+  const EjsRoot = '../../';
+  const Block = 'input-textarea';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+input-textarea
+*/
+/*
+#styleguide
+.input-textarea
+```
+<%-include(`${EjsRoot}components/input-textarea/_input-textarea-preview`);
+```
+*/
