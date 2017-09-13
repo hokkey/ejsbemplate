@@ -104,8 +104,7 @@ getUtil = function () {
 
     printAttr: (attr, val) => {
       if (!util.type('string', val) || !util.type('string', attr)) {
-        console.log('"val and attr" must be a string!');
-        return '';
+        throw new Error('"val and attr" must be a string!');
       }
       if (val === 'undefined') {
         return '###ERROR###';
