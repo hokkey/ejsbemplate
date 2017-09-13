@@ -1,17 +1,17 @@
 <%
-// icon/_icon.ejs
-// A main HTML file of "icon" component
+// site-footer/_site-footer.ejs
+// A main HTML file of "site-footer" component
 //
-  const Block = 'icon';
+  const Block = 'site-footer';
   const EjsRoot = '../../';
-  if (typeof iconParams === 'undefined') { iconParams = {}; }
-  const params = iconParams;
+  if (typeof siteFooterParams === 'undefined') { siteFooterParams = {}; }
+  const params = siteFooterParams;
 
   let dataParams = {};
   // Un-comment below to include a component specific data
   //if (typeof p.type === 'undefined') { p.type = 'default'; }
   //include(`./_${Block}-data`);
-  //dataParams = getIconData(p.type);
+  //dataParams = getSiteFooterData(p.type);
 
   let defaults = {
     modifier: '',

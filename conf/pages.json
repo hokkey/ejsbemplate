@@ -1,14 +1,22 @@
 {
-  "top": {
-    "name": "top",
-    "path": "/",
+  "dummy": {
+    "name": "dummy",
+    "path": "/dummy",
+    "root": "../../",
     "title": "INSERT_TITLE",
     "description": "INSERT_DESCRIPTION",
     "keywords": "INSERT_KEYWORDS",
     "ogType": "website",
-    "modifier": "",
-    "mode": "page",
-    "header": { "modifier": "" },
-    "footer": { "modifier": "" }
+    "mode": "dummy"
+  },
+  "index": {
+    "name": "index",
+    "path": "/",
+    "root": "../",
+    "title": "INSERT_TITLE",
+    "description": "INSERT_DESCRIPTION",
+    "keywords": "INSERT_KEYWORDS",
+    "ogType": "website",
+    "mode": "page"
   }
 }

@@ -5,5 +5,6 @@
   "ogUrl": "",
   "ogImage": "assets/images/ogp.png",
   "ogAppId": "INSERT_YOUR_APPID",
-  "gmapKey": "INSERT_YOUR_GMAP_KEY"
+  "gmapKey": "INSERT_YOUR_GMAP_KEY",
+  "baseUrl": "insert-production-base-url.jp"
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dest="./src/view/components/"
-sassFile="_component.scss"
+sassFile="_components.scss"
 json=$(cat conf/components.json)
 len=$(echo $json | jq length)
 

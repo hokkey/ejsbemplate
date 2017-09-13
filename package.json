@@ -1,6 +1,6 @@
 {
   "name": "ejsbemplate",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "",
   "dependencies": {},
   "devDependencies": {
@@ -21,9 +21,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:frontainer/frontplate.git"
+    "url": "git@github.com:hokkey/ejsbemplate.git"
   },
-  "author": "frontainer",
+  "author": "Yuma Hori",
   "license": "MIT",
   "private": true
 }

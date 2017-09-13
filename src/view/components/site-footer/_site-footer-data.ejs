@@ -1,0 +1,20 @@
+<% getSiteFooterData = (key) => {
+  const SiteFooterData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return SiteFooterData;
+  }
+
+  const result = SiteFooterData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`site-footer-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

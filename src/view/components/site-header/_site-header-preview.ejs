@@ -1,0 +1,11 @@
+<%
+// site-header/_site-header-guide.ejs
+// A preview HTML of "site-header" component
+  const EjsRoot = '../../';
+  const Block = 'site-header';
+%>
+<%- include(...util.inc(EjsRoot,Block,{modifier:''})); %>
+
+<%# Object.entries(getSiteHeaderData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

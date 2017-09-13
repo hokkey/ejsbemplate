@@ -1,0 +1,20 @@
+<% getIconData = (key) => {
+  const IconData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return IconData;
+  }
+
+  const result = IconData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`icon-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

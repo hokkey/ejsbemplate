@@ -17,8 +17,9 @@ npm install -g frontplate-cli
 
 frp create testing -g hokkey/ejsbemplate
 cd testing
-chmod +x ./generate-components.sh
+chmod +x ./*.sh
 ./generate-components.sh
+./generate-pages.sh
 
 # 開発ビルド
 npm run build

@@ -3,6 +3,7 @@ getUtil = function () {
   return {
 
     type: (type, obj) => {
+      if (typeof obj === 'undefined') return false;
       var tp = Object.prototype.toString.call(obj).replace(/^\[object (.+)\]$/, '$1').toLowerCase();
       return obj !== undefined && obj !== null && tp === type;
     },
@@ -82,23 +83,29 @@ getUtil = function () {
       return Math.round(number * _pow) / _pow;
     },
 
+    inc: (EjsRoot, blockName, options = {}) => {
+      const p = {};
+      p[`${blockName.replace(/[-_]([a-z])/g, (g) => { return g[1].toUpperCase(); })}Params`] = options;
+      return [`${EjsRoot}components/${blockName}/_${blockName}`, p];
+    },
+
     init: () => {
-      return (util, component) => {
-        // load global data
-        if (typeof data === 'undefined') {
-          include(ejsRoot + 'view/data/_data');
-          data = getData();
+      return (util, componentParams, defaultParams, dataParams) => {
+        // check currently used param value
+        const currentParams = {};
+        const params = componentParams;
+
+        if (util.type('object', params)) {
+          // Pick same property of defaultParams from componentParams.params
+          for (const p in defaultParams) {
+            if (typeof params[p] !== 'undefined')
+              currentParams[p] = params[p];
+          }
         }
 
-        // check params and set default value
-        const params = component.params;
-        for (const p in params) {
-          component[p] = params[p];
-        }
-
-        if (typeof params['data'] === 'undefined') {
-          params.data = data;
-        }
+        // Merge parameter values
+        // currentParams > dataParams > defaultParams
+        return Object.assign({}, defaultParams, dataParams, currentParams);
       }
     },
 
@@ -113,23 +120,6 @@ getUtil = function () {
         return '';
       }
       return ` ${attr}="${val}"`;
-    },
-
-    addModifierToParam: (param, className) => {
-      if (!util.type('object', param)) {
-        console.log('param is not object!');
-        return param;
-      }
-
-      if (!util.type('string', className)) {
-        console.log('className is not string!');
-        return param;
-      }
-
-      const p = Object.assign({}, param);
-      p.modifier += ` ${className}`;
-
-      return p;
     }
 
   };
