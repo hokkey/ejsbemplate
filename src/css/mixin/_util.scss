@@ -43,6 +43,7 @@
 }
 
 @mixin style-input-placeholder() {
+  // , でまとめると動作しなくなります
   &::-webkit-input-placeholder {
     @content;
   }
@@ -64,10 +65,26 @@
   @return inspect($value);
 }
 
-
+// 付けたいマージン($target-px)と、その結果の実際の見た目上のマージン($actual-px)の誤差を計算する関数
 @function gap($target-px, $actual-px:0 ) {
   @if $actual-px == 0 {
     @return $target-px;
   }
   @return $target-px - ($actual-px - $target-px);
+}
+
+// マーク付箇条書き項目の汎用ミックスイン
+@mixin bullet-list($bullet-size, $indent-length, $left-offset) {
+  padding-left: $indent-length;
+  text-indent: -$indent-length;
+
+  &:before {
+    content: '';
+    display: inline-block;
+
+    width: $bullet-size;
+    height: $bullet-size;
+    margin-left: $left-offset;
+    margin-right: calc(#{$indent-length - $left-offset} - #{$bullet-size});
+  }
 }
