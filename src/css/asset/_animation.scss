@@ -24,3 +24,47 @@
     transform: translate(-50%, -50%) rotateZ(360deg);
   }
 }
+
+// displayの変更を遅らせて表示・非表示をアニメーションによって切り替える
+@keyframes appear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  1% {
+    transform: scale(1);
+    display: block;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// displayの変更を遅らせて表示・非表示をアニメーションによって切り替える
+@keyframes disappear {
+  from {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
+  99% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    display: none;
+    transform: scale(0);
+  }
+}
+
+// accordion.js系の機能で、展開後に内容物をoverflow:visibleで表示させたいときに使用
+// ex) animation: overflow linear 0s .4s;
+@keyframes overflow {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible;
+  }
+}

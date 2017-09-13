@@ -1,11 +1,16 @@
 .clear {
-    @include cf;
+  @include cf;
 }
 
 .v-hidden {
-    @include hide-visually;
+  @include hide-visually;
 }
 
 .is-hidden {
-    display: none;
+  display: none;
+}
+
+.js-accordion-tgt {
+  overflow: hidden;
+  transition: max-height $base-animation;
 }

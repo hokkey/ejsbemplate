@@ -78,8 +78,7 @@ $break-point-pc-max: 1200px !default;
       @include media-sp-only {
         @content;
       }
-    }
-    @else {
+    } @else {
       @include media-sp-only($bp) {
         @content;
       }
@@ -143,7 +142,13 @@ $break-point-pc-max: 1200px !default;
 
 // 表示・非表示系クラス
 .media-sp-only {
-    @include media('tb') {
-        display: none;
-    }
+  @include media('tb') {
+    display: none;
+  }
+}
+
+.media-pc-only {
+  @include media('sp') {
+    display: none;
+  }
 }

@@ -41,8 +41,15 @@ a {
   word-break: break-all;
 
   &, &:link, &:visited {
-    color: inherit;
     text-decoration: none;
+  }
+
+  &, &:link {
+    color: $color-link;
+  }
+
+  &:visited {
+    color: $color-link-visited;
   }
 }
 

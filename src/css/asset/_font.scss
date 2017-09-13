@@ -10,3 +10,9 @@
   src: local("Yu Gothic Bold");
   font-weight: bold;
 }
+
+// Unicode characters for a content value
+$character-triangle-up: '\25B2'; // '▲'
+$character-double-right-arrow: '\00BB'; // '≫'
+$character-slash: '\002F'; // '/'
+$character-cross: '\00D7';
