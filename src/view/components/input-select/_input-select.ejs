@@ -1,0 +1,42 @@
+<%
+// input-select/_input-select.ejs
+// A main HTML file of "input-select" component
+//
+  const Block = 'input-select';
+  const EjsRoot = '../../';
+  if (typeof inputSelectParams === 'undefined') { inputSelectParams = {}; }
+  const params = inputSelectParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getInputSelectData(params.type);
+
+  let defaults = {
+    modifier: '',
+    selectClass: '',
+    id: `dummy-select-${util.randomStr()}`,
+    inputName: 'dummy-select',
+    options: [
+      {
+        val: 'dummy',
+        text: 'dummy-item',
+        selected: '',
+        disabled: ''
+      }
+    ]
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<span class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <select class="<%=Block%>__select<%=util.printWithSpace(p.selectClass)%>" id="<%=p.id%>" name="<%=p.inputName%>">
+    <% p.options.forEach((item) => { %>
+      <% if (item === null) return; %>
+      <option value="<%=item.val%>"<%-util.printAttr('selected', item.selected)%><%-util.printAttr('disabled', item.disabled)%>><%=item.text%></option>
+    <% }); %>
+  </select>
+</span>
+<!-- /<%=Block%> -->

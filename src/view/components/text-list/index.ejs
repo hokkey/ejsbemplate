@@ -1,0 +1,12 @@
+<%
+// text-list/index.ejs
+// A wrapper HTML for previewing "text-list"
+  const EjsRoot = '../../';
+  data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%><%- include(`${EjsRoot}parts/_header`); %>
+<%- include(`${EjsRoot}components/text-list/_text-list-preview`); %>
+<%- include(`${EjsRoot}parts/_footer`); %>

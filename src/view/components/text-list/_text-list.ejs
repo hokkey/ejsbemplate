@@ -1,0 +1,32 @@
+<%
+// text-list/_text-list.ejs
+// A main HTML file of "text-list" component
+//
+  const Block = 'text-list';
+  const EjsRoot = '../../';
+  if (typeof textListParams === 'undefined') { textListParams = {}; }
+  const params = textListParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getTextListData(params.type);
+
+  let defaults = {
+    modifier: '',
+    elem: 'ul',
+    items: [
+      'list item here'
+    ]
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<<%=p.elem%> class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <% p.items.forEach((item) => { %>
+    <li class="<%=Block%>__li"><%-item%></li>
+  <% }); %>
+</<%=p.elem%>>
+<!-- /<%=Block%> -->

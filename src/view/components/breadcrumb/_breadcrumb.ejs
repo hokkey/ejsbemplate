@@ -1,0 +1,47 @@
+<%
+// breadcrumb/_breadcrumb.ejs
+// A main HTML file of "breadcrumb" component
+//
+  const Block = 'breadcrumb';
+  const EjsRoot = '../../';
+  if (typeof breadcrumbParams === 'undefined') { breadcrumbParams = {}; }
+  const params = breadcrumbParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getBreadcrumbData(params.type);
+
+  let defaults = {
+    modifier: '',
+    elem: 'ol',
+    items: [
+      {
+        icon: '',
+        href: '/',
+        text: 'dummy'
+      },
+      {
+        icon: '',
+        href: '/',
+        text: 'dummy'
+      }
+    ]
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<<%=p.elem%> class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <% p.items.forEach((item) => { %>
+  <li class="<%=Block%>__item">
+    <a class="<%=Block%>__link"<%-util.printAttr('href', item.href)%>>
+      <% if (util.type('string', item.icon) && item.icon !== '') { %>
+      <%-include(...util.inc(EjsRoot,'icon',{modifier:`${Block}__icon ${item.icon}`}));%>
+      <% } %><%-item.text%>
+    </a>
+  </li>
+  <% }); %>
+</<%=p.elem%>>
+<!-- /<%=Block%> -->

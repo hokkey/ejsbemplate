@@ -1,0 +1,27 @@
+<% getGridListData = (key) => {
+  const GridListData = {
+    default: {
+      modifier: 'pc3col sp2col',
+      component: null,
+      inline: 'Repeated content',
+      items: [
+        { modifier: '' },
+        { modifier: '' },
+        { modifier: '' }
+      ]
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return GridListData;
+  }
+
+  const result = GridListData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`grid-list-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

@@ -1,0 +1,20 @@
+<% getSimpleLinksData = (key) => {
+  const SimpleLinksData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return SimpleLinksData;
+  }
+
+  const result = SimpleLinksData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`simple-links-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

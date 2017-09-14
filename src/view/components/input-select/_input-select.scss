@@ -1,0 +1,13 @@
+// input-select/_input-select.scss
+.input-select {
+  $this: &;
+
+  display: block;
+  position: relative;
+
+  &__select {
+    @include common-input;
+    padding: 10px 12px;
+    font-weight: bold;
+  }
+}

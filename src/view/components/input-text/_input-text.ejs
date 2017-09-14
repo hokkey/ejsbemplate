@@ -1,0 +1,30 @@
+<%
+// input-text/_input-text.ejs
+// A main HTML file of "input-text" component
+//
+  const Block = 'input-text';
+  const EjsRoot = '../../';
+  if (typeof inputTextParams === 'undefined') { inputTextParams = {}; }
+  const params = inputTextParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getInputTextData(params.type);
+
+  let defaults = {
+    modifier: '',
+    id: `dummy-text-${util.randomStr()}`,
+    inputType: 'text',
+    inputName: 'dummy-text',
+    placeholder: '',
+    val: '',
+    attrOption: ''
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<input class="<%=Block%><%- util.setModifier(Block, p.modifier); %>" type="<%=p.inputType%>" name="<%=p.inputName%>" id="<%=p.id%>"<%-util.printAttr('placeholder', p.placeholder);%><%-util.printAttr('value', p.val);%><%-util.printWithSpace(p.attrOption)%>/>
+<!-- /<%=Block%> -->

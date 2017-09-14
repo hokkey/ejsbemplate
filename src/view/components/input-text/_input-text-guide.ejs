@@ -1,0 +1,22 @@
+<%
+// input-text/_input-text-guide.ejs
+// A styleguide document of "input-text" component
+  const EjsRoot = '../../';
+  const Block = 'input-text';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+input-text
+*/
+/*
+#styleguide
+.input-text
+```
+<%-include(`${EjsRoot}components/input-text/_input-text-preview`);
+```
+*/

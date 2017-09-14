@@ -1,0 +1,20 @@
+<% getLinkData = (key) => {
+  const LinkData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return LinkData;
+  }
+
+  const result = LinkData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`link-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

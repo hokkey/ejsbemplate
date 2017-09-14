@@ -1,0 +1,20 @@
+<% getTextListData = (key) => {
+  const TextListData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return TextListData;
+  }
+
+  const result = TextListData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`text-list-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

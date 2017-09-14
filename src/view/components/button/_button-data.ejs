@@ -1,0 +1,20 @@
+<% getButtonData = (key) => {
+  const ButtonData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return ButtonData;
+  }
+
+  const result = ButtonData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`button-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

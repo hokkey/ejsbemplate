@@ -1,0 +1,75 @@
+// input-checkbox/_input-checkbox.scss
+.input-checkbox {
+  $this: &;
+
+  display: inline-block;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__label {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__checkbox {
+    flex-shrink: 0;
+    flex-grow: 0;
+    font-size: 16px;
+    border-radius: 2px;
+
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    margin-right: 10px;
+
+    transition: $base-animation background-color;
+    background-color: $color-white;
+    border: 1px solid $color-gray-light;
+  }
+
+  &__check {
+    fill: $color-gray;
+    transition: fill $base-animation, opacity $base-animation;
+    position: relative;
+    top: -3px;
+    left: 2px;
+    opacity: 0;
+  }
+
+  &__text {
+    flex-shrink: 1;
+    flex-grow: 1;
+
+    margin-top: -2px;
+    @include set-rem-font-size(14px);
+  }
+
+  // on focus
+  &__input:focus + &__label {
+    #{$this}__text {
+      outline: 1px dotted $color-gray;
+    }
+  }
+
+  // on checked
+  &__input:checked + &__label {
+    #{$this}__checkbox {
+      background-color: $color-black;
+    }
+
+    #{$this}__check {
+      opacity: 1;
+      fill: $color-white;
+    }
+  }
+}

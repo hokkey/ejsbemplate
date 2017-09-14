@@ -1,0 +1,13 @@
+// input-textarea/_input-textarea.scss
+.input-textarea {
+  $this: &;
+
+  @include common-input;
+
+  padding: 10px 12px;
+  height: 108px;
+
+  @include media('tb') {
+    height: 150px;
+  }
+}

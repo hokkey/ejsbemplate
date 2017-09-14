@@ -1,0 +1,38 @@
+// text-list/_text-list.scss
+.text-list {
+  $this: &;
+
+  $bullet-width-sp: 5px;
+  $bullet-width-pc: 6px;
+  $indent-width-sp: 15px;
+  $indent-width-pc: 17px;
+  $left-offset-sp: 1px;
+  $left-offset-pc: 2px;
+
+  @include set-rem-font-size(14px);
+
+  &__li {
+    @include bullet-list($bullet-width-sp, $indent-width-sp, $left-offset-sp);
+    margin-bottom: 9px;
+
+    @include media('tb') {
+      @include bullet-list($bullet-width-pc, $indent-width-pc, $left-offset-pc);
+      margin-bottom: 8px;
+    }
+
+    &:before {
+      background: $color-gray;
+      border-radius: 50%;
+      vertical-align: top;
+      position: relative;
+      top: .5em;
+
+      height: $bullet-width-sp;
+
+      @include media('tb') {
+        height: $bullet-width-pc;
+      }
+    }
+  }
+
+}

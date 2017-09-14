@@ -1,0 +1,20 @@
+<% getBreadcrumbData = (key) => {
+  const BreadcrumbData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return BreadcrumbData;
+  }
+
+  const result = BreadcrumbData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`breadcrumb-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

@@ -1,13 +1,29 @@
 <%
-getUtil = function () {
+getUtil = () => {
   return {
 
+    /**
+     * Inspect data type. Return true if data type is matched.
+     *
+     * @function type
+     * @return {boolean}
+     * @param {string} type - An expected data type name with lowercase
+     * @param {object} obj - Target of a inspection
+     */
     type: (type, obj) => {
       if (typeof obj === 'undefined') return false;
       var tp = Object.prototype.toString.call(obj).replace(/^\[object (.+)\]$/, '$1').toLowerCase();
       return obj !== undefined && obj !== null && tp === type;
     },
 
+    /**
+     * Return true if modifiers have an expected string
+     *
+     * @function hasModifier
+     * @return {boolean}
+     * @param {array|string} modifiers
+     * @param {string} checkString
+     */
     hasModifier: (modifiers, checkString) => {
       if (util.type('array', modifiers)) {
         return modifiers.join('').indexOf(checkString) !== -1;
@@ -15,23 +31,7 @@ getUtil = function () {
       if (util.type('string', modifiers)) {
         return modifiers.indexOf(checkString) !== -1;
       }
-      throw new Error(typeof modifiers);
-    },
-
-    hasNoModifier: (modifiers) => {
-      const modifierArray = modifiers;
-      if (util.type('string', modifier)) {
-        modifierArray = modifiers.replace(/\s+/, ' ').replace(/\s$/, '').modifiers.split(' ');
-      }
-
-      let result = true;
-      modifierArray.forEach((string) => {
-        if (string.match(/^(i|j)s-/) === null && string !== '') {
-          result = false;
-        }
-      });
-
-      return result;
+      throw new Error('modifiers must be a string or array!');
     },
 
     setModifierString: (name, modifier) => {
@@ -62,6 +62,14 @@ getUtil = function () {
       return util.setModifierArray(name, string.split(' '));
     },
 
+    /**
+     * Make multiple HTML class names expanded as a BEM Modifier
+     *
+     * @function setModifier
+     * @return {string}
+     * @param {string} name - A base name of BEM Block
+     * @param {string|array} modifier
+     */
     setModifier: (name, modifier) => {
       if (util.type('string', modifier)) {
         if (modifier === '') {
@@ -78,18 +86,50 @@ getUtil = function () {
       }
     },
 
+    /**
+     * Trim floated number
+     *
+     * @function floatFormat
+     * @param {number} number
+     * @param {number} n
+     */
     floatFormat: (number, n) => {
       const _pow = Math.pow(10, n);
       return Math.round(number * _pow) / _pow;
     },
 
+    /**
+     * Return array with include path and a parameter object for native include() function
+     * Usage: include(...util.inc(EjsRoot, 'block-name', {modifier:''}));
+     *
+     * @function inc
+     * @return {array}
+     * @param {string} EjsRoot
+     * @param {string} blockName
+     * @param {Object} [options] - A parameter set for included component
+     */
     inc: (EjsRoot, blockName, options = {}) => {
       const p = {};
       p[`${blockName.replace(/[-_]([a-z])/g, (g) => { return g[1].toUpperCase(); })}Params`] = options;
       return [`${EjsRoot}components/${blockName}/_${blockName}`, p];
     },
 
+    /**
+     * Return a function which merges default parameter and actually used parameter
+     *
+     * @function init
+     * @return {Function}
+     */
     init: () => {
+      /**
+       * Merge objects: currentParams > dataParams > defaultParams
+       *
+       * @function
+       * @param {Object} util A reference of utility object
+       * @param {Object} componentParams A parameter set currently passed from the outside
+       * @param {Object} defaultParams A default parameter set of a component
+       * @param {Object} dataParams A parameter set picked from a data-ejs
+       */
       return (util, componentParams, defaultParams, dataParams) => {
         // check currently used param value
         const currentParams = {};
@@ -109,6 +149,34 @@ getUtil = function () {
       }
     },
 
+    /**
+     * Return random generated string with alphabets/numbers
+     * Useful for generating temporary HTML-ID
+     *
+     * @function randomStr
+     * @return {String}
+     * @param {Number} [length] - A length of generated string (Default: 5)
+     */
+    randomStr: (length = 5) => {
+      let str = '';
+      let i = 0;
+
+      while (str.length < length) {
+        let r = Math.random() * 62 << 0;
+        str += String.fromCharCode(r += r > 9 ? r < 36 ? 55 : 61 : 48);
+      }
+
+      return str;
+    },
+
+    /**
+     * Return string as HTML attribute if 'val' param is not a blank string
+     *
+     * @function printAttr
+     * @return {String}
+     * @param  {String} attr - A name of expected attribute
+     * @param  {String} val - A value of expected attribute
+     */
     printAttr: (attr, val) => {
       if (!util.type('string', val) || !util.type('string', attr)) {
         throw new Error('"val and attr" must be a string!');
@@ -120,6 +188,27 @@ getUtil = function () {
         return '';
       }
       return ` ${attr}="${val}"`;
+    },
+
+    /**
+     * Return string with space if it is not a blank string
+     *
+     * @function printWithSpace
+     * @return {string}
+     * @param {string} str
+     */
+    printWithSpace: (str) => {
+      const isString = util.type('string', str);
+
+      if (!isString) {
+        return '';
+      }
+
+      if (str === '') {
+        return '';
+      }
+
+      return ' ' + str;
     }
 
   };

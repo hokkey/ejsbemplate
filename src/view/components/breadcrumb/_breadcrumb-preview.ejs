@@ -1,0 +1,11 @@
+<%
+// breadcrumb/_breadcrumb-guide.ejs
+// A preview HTML of "breadcrumb" component
+  const EjsRoot = '../../';
+  const Block = 'breadcrumb';
+%>
+<%- include(...util.inc(EjsRoot,Block,{modifier:''})); %>
+
+<%# Object.entries(getBreadcrumbData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

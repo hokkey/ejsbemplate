@@ -1,0 +1,12 @@
+<%
+// submit-with-agreement/index.ejs
+// A wrapper HTML for previewing "submit-with-agreement"
+  const EjsRoot = '../../';
+  data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%><%-include(`${EjsRoot}parts/_header`); %>
+<%-include(`${EjsRoot}components/submit-with-agreement/_submit-with-agreement-preview`);%>
+<%-include(`${EjsRoot}parts/_footer`);%>

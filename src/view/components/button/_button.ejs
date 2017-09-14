@@ -1,0 +1,40 @@
+<%
+// button/_button.ejs
+// A main HTML file of "button" component
+//
+  const Block = 'button';
+  const EjsRoot = '../../';
+  if (typeof buttonParams === 'undefined') { buttonParams = {}; }
+  const params = buttonParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getButtonData(params.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Button Text Here',
+    icon: '',
+    href: '#',
+    inputType: '',
+    isBlank: false,
+    attrOption: ''
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+  const target = p.isBlank ? '_blank' : '';
+  const elem = (() => {
+    if (util.hasModifier(p.modifier, 'input')) {
+      p.href = '';
+      return 'button';
+    }
+    p.inputType = '';
+    p.isBlank = false;
+    return 'a';
+  })();
+%>
+<!-- <%=Block%> -->
+<<%=elem%> class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%-util.printAttr('href', p.href);%><%-util.printAttr('target', target);%><%-util.printAttr('type', p.inputType);%><%-util.printWithSpace(p.attrOption)%>><% if (util.type('string', p.icon) && p.icon !== '') { %><%-include(...util.inc(EjsRoot,'icon',{modifier:`${Block}__icon ${p.icon}`, icon:p.icon}));%><% } %><%-p.text%></<%=elem%>>
+<!-- /<%=Block%> -->

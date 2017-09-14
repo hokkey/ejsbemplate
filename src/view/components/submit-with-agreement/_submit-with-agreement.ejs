@@ -1,0 +1,43 @@
+<%
+// submit-with-agreement/_submit-with-agreement.ejs
+// A main HTML file of "submit-with-agreement" component
+//
+  const Block = 'submit-with-agreement';
+  const EjsRoot = '../../';
+  if (typeof submitWithAgreementParams === 'undefined') { submitWithAgreementParams = {}; }
+  const params = submitWithAgreementParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getSubmitWithAgreementData(params.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Agree',
+    desc: 'Notice here.',
+    id: 'agree-checkbox-${util.randomStr()}',
+    inputName: 'agree',
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%> js-submit-with-agreement">
+  <p class="<%=Block%>__checkbox">
+    <%-include(...util.inc(EjsRoot,'input-checkbox',{
+      modifier:'',
+      text: p.text,
+      id: p.id,
+      inputName: p.inputName,
+      checked: '',
+      inputClass: 'js-submit-with-agreement-check'
+    }));%>
+  </p>
+  <% if (p.desc !== '') { %><p class="<%=Block%>__desc"><%-p.desc%></p><% } %>
+  <p class="<%=Block%>__submit">
+    <%-include(...util.inc(EjsRoot,'button',{modifier:'input js-submit-with-agreement-submit', attrOption:'disabled'}));%>
+  </p>
+</div>
+<!-- /<%=Block%> -->

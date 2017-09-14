@@ -1,0 +1,12 @@
+<%
+// button/_button-guide.ejs
+// A preview HTML of "button" component
+  const Block = 'button';
+  const EjsRoot = '../../';
+  //include(`./_${Block}-data`);
+%>
+<%-include(...util.inc(EjsRoot,Block,{modifier:''}));%>
+
+<%# Object.entries(getButtonData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

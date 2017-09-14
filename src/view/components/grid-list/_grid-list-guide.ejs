@@ -1,0 +1,22 @@
+<%
+// grid-list/_grid-list-guide.ejs
+// A styleguide document of "grid-list" component
+  const EjsRoot = '../../';
+  const Block = 'grid-list';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+grid-list
+*/
+/*
+#styleguide
+.grid-list
+```
+<%-include(`${EjsRoot}components/grid-list/_grid-list-preview`);
+```
+*/

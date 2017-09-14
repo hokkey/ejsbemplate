@@ -1,0 +1,10 @@
+// input-text/_input-text.scss
+.input-text {
+  $this: &;
+
+  @include common-input;
+  padding: 10px 12px;
+
+  // hide spin buttons
+  @include hide-number-input-spin;
+}

@@ -1,0 +1,22 @@
+<%
+// breadcrumb/_breadcrumb-guide.ejs
+// A styleguide document of "breadcrumb" component
+  const EjsRoot = '../../';
+  const Block = 'breadcrumb';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+breadcrumb
+*/
+/*
+#styleguide
+.breadcrumb
+```
+<%-include(`${EjsRoot}components/breadcrumb/_breadcrumb-preview`);
+```
+*/

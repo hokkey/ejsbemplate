@@ -1,0 +1,22 @@
+<%
+// simple-links/_simple-links-guide.ejs
+// A styleguide document of "simple-links" component
+  const EjsRoot = '../../';
+  const Block = 'simple-links';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+simple-links
+*/
+/*
+#styleguide
+.simple-links
+```
+<%-include(`${EjsRoot}components/simple-links/_simple-links-preview`);
+```
+*/

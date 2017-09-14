@@ -1,0 +1,22 @@
+<%
+// input-select/_input-select-guide.ejs
+// A styleguide document of "input-select" component
+  const EjsRoot = '../../';
+  const Block = 'input-select';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+input-select
+*/
+/*
+#styleguide
+.input-select
+```
+<%-include(`${EjsRoot}components/input-select/_input-select-preview`);
+```
+*/

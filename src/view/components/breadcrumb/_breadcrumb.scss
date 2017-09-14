@@ -1,0 +1,37 @@
+// breadcrumb/_breadcrumb.scss
+.breadcrumb {
+  $this: &;
+
+  @include set-rem-font-size(12px);
+
+  &__item {
+    display: inline-block;
+
+    & + & {
+      &::before {
+        color: $color-gray;
+        // content: '/ ';
+        content: $character-slash ' ';
+      }
+    }
+  }
+
+  &__link {
+    &, &:link, &:visited {
+      color: $color-gray;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-link;
+    }
+  }
+
+  &__icon {
+    width: 13px;
+    height: 12px;
+    vertical-align: top;
+    margin-top: 3px;
+    margin-right: 2px;
+  }
+}

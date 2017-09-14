@@ -1,0 +1,20 @@
+// submit-with-agreement/_submit-with-agreement.scss
+.submit-with-agreement {
+  $this: &;
+
+  &__head {
+
+  }
+
+  &--mod {
+    #{$this}__head {
+
+    }
+  }
+
+  &.is-active {
+    #{$this}__head {
+
+    }
+  }
+}

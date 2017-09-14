@@ -1,0 +1,30 @@
+<%
+// link/_link.ejs
+// A main HTML file of "link" component
+//
+  const Block = 'link';
+  const EjsRoot = '../../';
+  if (typeof linkParams === 'undefined') { linkParams = {}; }
+  const params = linkParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getLinkData(params.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Button Text Here',
+    icon: '',
+    href: '#',
+    isBlank: false,
+    attrOption: ''
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+  const target = p.isBlank ? '_blank' : '';
+%>
+<!-- <%=Block%> -->
+<a class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%-util.printAttr('href', p.href);%><%-util.printAttr('target', target);%><%-util.printWithSpace(p.attrOption)%>><% if (util.type('string', p.icon) && p.icon !== '') { %><%-include(...util.inc(EjsRoot,'icon',{modifier:`${Block}__icon ${p.icon}`, icon:p.icon}));%><% } %><%-p.text%></a>
+<!-- /<%=Block%> -->

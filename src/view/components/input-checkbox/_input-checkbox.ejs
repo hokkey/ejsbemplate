@@ -1,0 +1,35 @@
+<%
+// input-checkbox/_input-checkbox.ejs
+// A main HTML file of "input-checkbox" component
+//
+  const Block = 'input-checkbox';
+  const EjsRoot = '../../';
+  if (typeof inputCheckboxParams === 'undefined') { inputCheckboxParams = {}; }
+  const params = inputCheckboxParams;
+
+  let dataParams = {};
+  // Un-comment below to include a component specific data
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
+  //include(`./_${Block}-data`);
+  //dataParams = getInputCheckboxData(params.type);
+
+  let defaults = {
+    modifier: '',
+    text: 'Default text here',
+    id: 'dummuy-checkbox-${util.randomStr()}',
+    inputName: 'dummy-checkbox',
+    checked: 'checked',
+    inputClass: ''
+  };
+
+  const p = util.init()(util, params, defaults, dataParams);
+%>
+<!-- <%=Block%> -->
+<span class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <input class="<%=Block%>__input <%=p.inputClass%>" type="checkbox" id="<%=p.id%>" name="<%=p.inputName%>"<%-util.printAttr('checked', p.checked);%>/>
+  <label class="<%=Block%>__label" for="<%=p.id%>">
+    <span class="<%=Block%>__checkbox"><%-include(...util.inc(EjsRoot,'icon',{modifier:`${Block}__check check`, icon:'check'}));%></span>
+    <span class="<%=Block%>__text"><%-p.text%></span>
+  </label>
+</span>
+<!-- /<%=Block%> -->

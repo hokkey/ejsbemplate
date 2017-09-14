@@ -1,0 +1,12 @@
+<%
+// simple-links/index.ejs
+// A wrapper HTML for previewing "simple-links"
+  const EjsRoot = '../../';
+  data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%><%-include(`${EjsRoot}parts/_header`); %>
+<%-include(`${EjsRoot}components/simple-links/_simple-links-preview`);%>
+<%-include(`${EjsRoot}parts/_footer`);%>
