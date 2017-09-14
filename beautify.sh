@@ -2,8 +2,8 @@
 exe="node_modules/.bin/js-beautify"
 
 dirs=(\
-  "./public/components/" \
-  "./public/"
+  "./public/" \
+  "./public/pages/"
 )
 
 function main() {
@@ -11,7 +11,7 @@ function main() {
     do
       for entry in "$dir"*.html
       do
-        $exe "$entry" -r --preserve-new-lines false --max-preserve-newlines 0 --wrap-line-length 0 --wrap-attributes-indent-size 0 --unformatted 'b em'
+        $exe "$entry" -r --indent-size 2 --preserve-new-lines false --max-preserve-newlines 0 --wrap-line-length 0 --wrap-attributes-indent-size 0 --unformatted 'b em'
       done
     done
 }
