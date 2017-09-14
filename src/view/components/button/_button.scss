@@ -1,0 +1,9 @@
+// button/_button.scss
+.button {
+  $this: &;
+
+  user-select: none;
+  display: block;
+  line-height: 1.3;
+  text-align: center;
+}

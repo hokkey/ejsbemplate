@@ -9,19 +9,24 @@
 
   let dataParams = {};
   // Un-comment below to include a component specific data
-  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
   //include(`./_${Block}-data`);
-  //dataParams = getTextListData(p.type);
+  //dataParams = getTextListData(params.type);
 
   let defaults = {
     modifier: '',
-    text: 'Default text here',
-    //href: '',
+    elem: 'ul',
+    items: [
+      'list item here'
+    ]
   };
 
   const p = util.init()(util, params, defaults, dataParams);
 %>
 <!-- <%=Block%> -->
-<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
-</div>
+<<%=p.elem%> class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <% p.items.forEach((item) => { %>
+    <li class="<%=Block%>__li"><%-item%></li>
+  <% }); %>
+</<%=p.elem%>>
 <!-- /<%=Block%> -->

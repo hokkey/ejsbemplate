@@ -1,5 +1,17 @@
 [
   "icon",
+  "link",
+  "button",
+  "input-text",
+  "input-select",
+  "input-checkbox",
+  "input-radio",
+  "input-textarea",
+  "submit-with-agreement",
+  "text-list",
+  "breadcrumb",
+  "grid-list",
+  "simple-links",
   "site-header",
   "site-footer"
 ]

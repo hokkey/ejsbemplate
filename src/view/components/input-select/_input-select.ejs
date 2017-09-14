@@ -9,19 +9,34 @@
 
   let dataParams = {};
   // Un-comment below to include a component specific data
-  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
   //include(`./_${Block}-data`);
-  //dataParams = getInputSelectData(p.type);
+  //dataParams = getInputSelectData(params.type);
 
   let defaults = {
     modifier: '',
-    text: 'Default text here',
-    //href: '',
+    selectClass: '',
+    id: `dummy-select-${util.randomStr()}`,
+    inputName: 'dummy-select',
+    options: [
+      {
+        val: 'dummy',
+        text: 'dummy-item',
+        selected: '',
+        disabled: ''
+      }
+    ]
   };
 
   const p = util.init()(util, params, defaults, dataParams);
 %>
 <!-- <%=Block%> -->
-<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
-</div>
+<span class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <select class="<%=Block%>__select<%=util.printWithSpace(p.selectClass)%>" id="<%=p.id%>" name="<%=p.inputName%>">
+    <% p.options.forEach((item) => { %>
+      <% if (item === null) return; %>
+      <option value="<%=item.val%>"<%-util.printAttr('selected', item.selected)%><%-util.printAttr('disabled', item.disabled)%>><%=item.text%></option>
+    <% }); %>
+  </select>
+</span>
 <!-- /<%=Block%> -->

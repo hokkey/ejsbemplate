@@ -9,19 +9,26 @@
 
   let dataParams = {};
   // Un-comment below to include a component specific data
-  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
   //include(`./_${Block}-data`);
-  //dataParams = getInputRadioData(p.type);
+  //dataParams = getInputRadioData(params.type);
 
   let defaults = {
     modifier: '',
-    text: 'Default text here',
-    //href: '',
+    label: 'Option',
+    id: `dummy-radio-${util.randomStr()}`,
+    inputName: 'dummy-radio',
+    attrOption: ''
   };
 
   const p = util.init()(util, params, defaults, dataParams);
 %>
 <!-- <%=Block%> -->
-<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
-</div>
+<span class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
+  <input class="<%=Block%>__input" id="<%=p.id%>" type="radio" name="<%=p.inputName%>" <%-p.attrOption%>/>
+  <label class="<%=Block%>__label" for="<%=p.id%>">
+    <span class="<%=Block%>__radio"></span>
+    <span class="<%=Block%>__text"><%-p.label%></span>
+  </label>
+</span>
 <!-- /<%=Block%> -->

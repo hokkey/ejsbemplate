@@ -9,19 +9,22 @@
 
   let dataParams = {};
   // Un-comment below to include a component specific data
-  //if (typeof p.type === 'undefined') { p.type = 'default'; }
+  //if (typeof params.type === 'undefined') { params.type = 'default'; }
   //include(`./_${Block}-data`);
-  //dataParams = getLinkData(p.type);
+  //dataParams = getLinkData(params.type);
 
   let defaults = {
     modifier: '',
-    text: 'Default text here',
-    //href: '',
+    text: 'Button Text Here',
+    icon: '',
+    href: '#',
+    isBlank: false,
+    attrOption: ''
   };
 
   const p = util.init()(util, params, defaults, dataParams);
+  const target = p.isBlank ? '_blank' : '';
 %>
 <!-- <%=Block%> -->
-<div class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%#util.printAttr('href', p.href);%>>
-</div>
+<a class="<%=Block%><%-util.setModifier(Block, p.modifier);%>"<%-util.printAttr('href', p.href);%><%-util.printAttr('target', target);%><%-util.printWithSpace(p.attrOption)%>><% if (util.type('string', p.icon) && p.icon !== '') { %><%-include(...util.inc(EjsRoot,'icon',{modifier:`${Block}__icon ${p.icon}`, icon:p.icon}));%><% } %><%-p.text%></a>
 <!-- /<%=Block%> -->

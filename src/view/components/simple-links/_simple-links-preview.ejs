@@ -1,0 +1,12 @@
+<%
+// simple-links/_simple-links-guide.ejs
+// A preview HTML of "simple-links" component
+  const Block = 'simple-links';
+  const EjsRoot = '../../';
+  //include(`./_${Block}-data`);
+%>
+<%-include(...util.inc(EjsRoot,Block,{modifier:''}));%>
+
+<%# Object.entries(getSimpleLinksData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

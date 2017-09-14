@@ -2,19 +2,124 @@
 .grid-list {
   $this: &;
 
-  &__head {
+  $this: &;
 
-  }
+  $pc-margin: 20px;
+  $sp-margin: 15px;
 
-  &--mod {
-    #{$this}__head {
+  &--pc2col,
+  &--pc3col,
+  &--pc4col,
+  &--pc5col,
+  &--pc6col {
+    @include media('tb') {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
 
+      margin-left: -$pc-margin * .5;
+      margin-right: -$pc-margin * .5;
+    }
+
+    #{$this}__item {
+      @include media('tb') {
+        padding-left: $pc-margin * .5;
+        padding-right: $pc-margin * .5;
+        margin-bottom: gap($pc-margin);
+      }
     }
   }
 
-  &.is-active {
-    #{$this}__head {
+  &--pc2col {
+    #{$this}__item {
+      @include media('tb') {
+        width: 50%;
+      }
+    }
+  }
 
+  &--pc3col {
+    #{$this}__item {
+      @include media('tb') {
+        width: 33.3%;
+      }
+    }
+  }
+
+  &--pc4col {
+    #{$this}__item {
+      @include media('tb') {
+        width: 25%;
+      }
+    }
+  }
+
+  &--pc5col {
+    #{$this}__item {
+      @include media('tb') {
+        width: 20%;
+      }
+    }
+  }
+
+  &--pc6col {
+    #{$this}__item {
+      @include media('tb') {
+        width: (100%/6);
+      }
+    }
+  }
+
+  &--spXcol {
+    @include media('sp') {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+    #{$this}__item {
+      @include media('sp') {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &--sp1col,
+  &--sp2col {
+    @include media('sp') {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    #{$this}__item {
+      @include media('sp') {
+        margin-bottom: gap($sp-margin);
+      }
+    }
+  }
+
+  &--sp2col {
+    @include media('sp') {
+      display: flex;
+      flex-flow: row wrap;
+
+      margin-left: -$sp-margin * .5;
+      margin-right: -$sp-margin * .5;
+    }
+
+    #{$this}__item {
+      @include media('sp') {
+        padding-left: $sp-margin * .5;
+        padding-right: $sp-margin * .5;
+      }
+    }
+  }
+
+  &--sp2col {
+    #{$this}__item {
+      @include media('sp') {
+        width: 50%;
+      }
     }
   }
 }

@@ -1,0 +1,20 @@
+<% getSubmitWithAgreementData = (key) => {
+  const SubmitWithAgreementData = {
+    default: {
+      modifier: '',
+    }
+  };
+
+  if (typeof key === 'undefined') {
+    return SubmitWithAgreementData;
+  }
+
+  const result = SubmitWithAgreementData[key];
+
+  if (typeof result === 'undefined') {
+    throw new Error(`submit-with-agreement-data: ${key} is invalid key name!`);
+  }
+
+  return result;
+}
+%>

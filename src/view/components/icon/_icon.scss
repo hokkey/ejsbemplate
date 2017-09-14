@@ -20,7 +20,7 @@
   @each $modifier, $color-bg in $colors {
 
     @if ($modifier == '') {
-      @include apply-color($color-orange);
+      @include apply-color($color-bg);
 
     } @else {
       &--#{$modifier} {

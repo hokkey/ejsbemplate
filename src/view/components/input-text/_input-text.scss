@@ -2,19 +2,9 @@
 .input-text {
   $this: &;
 
-  &__head {
+  @include common-input;
+  padding: 10px 12px;
 
-  }
-
-  &--mod {
-    #{$this}__head {
-
-    }
-  }
-
-  &.is-active {
-    #{$this}__head {
-
-    }
-  }
+  // hide spin buttons
+  @include hide-number-input-spin;
 }

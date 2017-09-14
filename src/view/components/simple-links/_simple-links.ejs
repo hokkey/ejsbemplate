@@ -1,17 +1,17 @@
 <%
-// breadcrumb/_breadcrumb.ejs
-// A main HTML file of "breadcrumb" component
+// simple-links/_simple-links.ejs
+// A main HTML file of "simple-links" component
 //
-  const Block = 'breadcrumb';
+  const Block = 'simple-links';
   const EjsRoot = '../../';
-  if (typeof breadcrumbParams === 'undefined') { breadcrumbParams = {}; }
-  const params = breadcrumbParams;
+  if (typeof simpleLinksParams === 'undefined') { simpleLinksParams = {}; }
+  const params = simpleLinksParams;
 
   let dataParams = {};
   // Un-comment below to include a component specific data
   //if (typeof params.type === 'undefined') { params.type = 'default'; }
   //include(`./_${Block}-data`);
-  //dataParams = getBreadcrumbData(params.type);
+  //dataParams = getSimpleLinksData(params.type);
 
   let defaults = {
     modifier: '',
@@ -36,11 +36,7 @@
 <<%=p.elem%> class="<%=Block%><%-util.setModifier(Block, p.modifier);%>">
   <% p.items.forEach((item) => { %>
   <li class="<%=Block%>__item">
-    <a class="<%=Block%>__link"<%-util.printAttr('href', item.href)%>>
-      <% if (util.type('string', item.icon) && item.icon !== '') { %>
-      <%-include(...util.inc(EjsRoot,'icon',{modifier:`${Block}__icon ${item.icon}`}));%>
-      <% } %><%-item.text%>
-    </a>
+    <%-include(...util.inc(EjsRoot,'link',{modifier:`${Block}__icon ${item.icon}`, href:item.href, icon:item.icon, text:item.text, isBlank:false}));%>
   </li>
   <% }); %>
 </<%=p.elem%>>

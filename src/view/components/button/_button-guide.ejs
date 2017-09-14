@@ -1,0 +1,22 @@
+<%
+// button/_button-guide.ejs
+// A styleguide document of "button" component
+  const EjsRoot = '../../';
+  const Block = 'button';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+button
+*/
+/*
+#styleguide
+.button
+```
+<%-include(`${EjsRoot}components/button/_button-preview`);
+```
+*/

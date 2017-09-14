@@ -1,0 +1,12 @@
+<%
+// submit-with-agreement/_submit-with-agreement-guide.ejs
+// A preview HTML of "submit-with-agreement" component
+  const Block = 'submit-with-agreement';
+  const EjsRoot = '../../';
+  //include(`./_${Block}-data`);
+%>
+<%-include(...util.inc(EjsRoot,Block,{modifier:''}));%>
+
+<%# Object.entries(getSubmitWithAgreementData()).forEach((param) => { %>
+  <%#- include(...util.inc(EjsRoot,Block,{type: param[0]})); %>
+<%# }); %>

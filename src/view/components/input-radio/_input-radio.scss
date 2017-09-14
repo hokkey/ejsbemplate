@@ -2,19 +2,68 @@
 .input-radio {
   $this: &;
 
-  &__head {
+  position: relative;
+  display: inline-block;
+  line-height: $base-line-height;
+  @include set-rem-font-size(14px);
 
+  // hidden radio input
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
   }
 
-  &--mod {
-    #{$this}__head {
-
+  &__label {
+    &:hover {
+      cursor: pointer;
     }
   }
 
-  &.is-active {
-    #{$this}__head {
+  // visible dummy radio button
+  &__radio {
+    border: 2px solid $color-black;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
 
+    margin-right: 6px;
+
+    top: 2px;
+    $size-sp: 19px;
+    width: $size-sp;
+    height: $size-sp;
+
+    &::before {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      background-color: $color-gray;
+      transform: scale(0);
+      transition: transform .15s ease;
+
+      $inner-size-sp: $size-sp - 10px;
+      width: $inner-size-sp;
+      height: $inner-size-sp;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+  }
+
+  // on focus
+  &__input:focus + &__label {
+    > #{$this}__text {
+      outline: 1px dotted;
+    }
+  }
+
+  // on checked
+  &__input:checked + &__label {
+    > #{$this}__radio::before {
+      transform: scale(1);
     }
   }
 }

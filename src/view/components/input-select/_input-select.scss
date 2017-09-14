@@ -2,19 +2,12 @@
 .input-select {
   $this: &;
 
-  &__head {
+  display: block;
+  position: relative;
 
-  }
-
-  &--mod {
-    #{$this}__head {
-
-    }
-  }
-
-  &.is-active {
-    #{$this}__head {
-
-    }
+  &__select {
+    @include common-input;
+    padding: 10px 12px;
+    font-weight: bold;
   }
 }

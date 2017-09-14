@@ -1,5 +1,5 @@
 <%
-getUtil = function () {
+getUtil = () => {
   return {
 
     /**
@@ -188,6 +188,27 @@ getUtil = function () {
         return '';
       }
       return ` ${attr}="${val}"`;
+    },
+
+    /**
+     * Return string with space if it is not a blank string
+     *
+     * @function printWithSpace
+     * @return {string}
+     * @param {string} str
+     */
+    printWithSpace: (str) => {
+      const isString = util.type('string', str);
+
+      if (!isString) {
+        return '';
+      }
+
+      if (str === '') {
+        return '';
+      }
+
+      return ' ' + str;
     }
 
   };

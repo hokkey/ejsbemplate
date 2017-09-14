@@ -1,0 +1,22 @@
+<%
+// submit-with-agreement/_submit-with-agreement-guide.ejs
+// A styleguide document of "submit-with-agreement" component
+  const EjsRoot = '../../';
+  const Block = 'submit-with-agreement';
+  const data = {
+    pageSettings: sitePages['dummy'],
+    root: '../../public/'
+  };
+  if (typeof util === 'undefined') { include(`${EjsRoot}util/_util`); util = getUtil(); }
+%>
+/*
+#overview
+submit-with-agreement
+*/
+/*
+#styleguide
+.submit-with-agreement
+```
+<%-include(`${EjsRoot}components/submit-with-agreement/_submit-with-agreement-preview`);
+```
+*/
